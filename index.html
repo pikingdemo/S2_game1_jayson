@@ -44,6 +44,8 @@
             Enemy3 = [];
             Boss = [];
             LobbyText=new object("50px","Consolas","blue",150,100,"text");
+            LeftBtn = new object(30, 30, "images/leftbutton.png", 20, 200, "image");
+            RightBtn = new object(30, 30, "images/rightbutton.png", 80, 200, "image");            
         }
         //遊戲不斷執行設定
         function LoopGame()
@@ -140,6 +142,18 @@
                 if (GameArea.key_is_pressed && GameArea.key_is_pressed[39]) {move(Player,'right',3);Player.image.src="images/player2.png";}
                 if (GameArea.key_is_pressed && GameArea.key_is_pressed[65]) {move(Player,'left',3);Player.image.src="images/player.png";}
                 if (GameArea.key_is_pressed && GameArea.key_is_pressed[68]) {move(Player,'right',3);Player.image.src="images/player2.png";}
+                if (LeftBtn.clicked())
+                {
+                    move(Player,'left',3);
+                    Player.image.src="images/player.png";
+                }
+                if (RightBtn.clicked())
+                {
+                    move(Player,'right',3);
+                    Player.image.src="images/player2.png";
+                }
+                LeftBtn.newShow();
+                RightBtn.newShow();
                 Player.newPosition();
                 Player.newShow();
                 //產生器
